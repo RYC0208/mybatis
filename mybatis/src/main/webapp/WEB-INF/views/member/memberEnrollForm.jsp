@@ -12,7 +12,7 @@
 	
 	<h1 align="center">회원가입</h1>
 	
-	<form method="post" action="insert.me">
+	<form method="post" action="insert.me" id="enrollForm">
 		<table align="center">
 			<tr>
 				<td>* ID</td>
@@ -71,13 +71,23 @@
 						data : {checkId: $idInput.val()},
 						success:function(result) {
 							console.log(result);
+							if(result == "idN") {
+								$("#checkResult").show();
+								$("#checkResult").css("color","red").text("중복된 아이디가 존재합니다. 다시 입력해 주세요");   
+								$("#enrollForm :submit").attr("disabled", true);
+							} else {
+								$("#checkResult").show();
+								$("#checkResult").css("color","green").text("사용할 수 있는 아이디 입니다");   
+								$("#enrollForm :submit").attr("disabled", false);
+							}
 						},
 						error:function(){
 							console.log("아이디 중복체크용 ajax통신 실패");
 						}
 					})
 				} else {
-					
+					$("#checkResult").hide();
+					$("#enrollForm :submit").attr("disabled", true);
 				}
 			})
 		})
