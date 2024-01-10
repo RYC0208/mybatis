@@ -29,6 +29,10 @@
 		background-color: gray;
 		cursor: pointer;
 	}
+	.outer{
+		width:700px;
+		margin: 0 auto;
+	}
 </style>
 </head>
 <body>

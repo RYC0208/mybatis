@@ -53,22 +53,42 @@ public class BoardServiceImpl implements BoardService {
 	// 조회수 증가
 	@Override
 	public int increaseCount(int board_no) {
-		// TODO Auto-generated method stub
-		return 0;
+		SqlSession sqlSession = Template.getSqlSession();
+		int result = bDao.increaseCount(sqlSession, board_no);
+		if(result > 0) {
+			sqlSession.commit();
+		}
+		sqlSession.close();
+		return result;
 	}
 
 	// 게시글 상세보기(1개 조회)
 	@Override
 	public Board selectBoard(int board_no) {
-		// TODO Auto-generated method stub
-		return null;
+		SqlSession sqlSession = Template.getSqlSession();
+		Board b = bDao.selectBoard(sqlSession, board_no);
+		sqlSession.close();
+		return b;
 	}
 
 	// 1개의 게시글의 댓글 리스트 목록 
 	@Override
 	public ArrayList<Reply> selectReplyList(int board_no) {
-		// TODO Auto-generated method stub
-		return null;
+		SqlSession sqlSession = Template.getSqlSession();
+		ArrayList<Reply> list = bDao.selectReplyList(sqlSession, board_no);
+		sqlSession.close();
+		return list;
+	}
+
+	@Override
+	public int insertReply(Reply reply) {
+		SqlSession sqlSession = Template.getSqlSession();
+		int result = bDao.insertReply(sqlSession, reply);
+		if(result > 0) {
+			sqlSession.commit();
+		}
+		sqlSession.close();
+		return result;
 	}
 
 

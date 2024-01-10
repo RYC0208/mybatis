@@ -7,10 +7,6 @@
 <meta charset="UTF-8">
 <title>Insert title here</title>
 <style>
-	.outer{
-		width:700px;
-		margin: 0 auto;
-	}
     #list-area {
     	width:100%;
         border: 1px solid;
@@ -34,7 +30,7 @@
 <body>
 	<jsp:include page="../common/menubar.jsp" />
 	
-    <div class="outer" align="center">
+    <div class="outer">
         <h1 align="center">게시판</h1>
 
         <div id="search-area">
