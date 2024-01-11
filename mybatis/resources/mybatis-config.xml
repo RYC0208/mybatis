@@ -17,30 +17,30 @@
 	</typeAliases>
 	
 	<!-- environments : mybatis에서 연동할 DB정보들을 등록하는 영역 -->
-	<environments default="development">
-		<environment id="development">
-			<!-- 
-			  * transactionManager
-			  	- JDBC : 트랜잭션을 내가 직접 관리하겠다(수동 commit)
-			  	- MANAGED : 트랜잭에 대한 어떠한 영향도 행사하지 않겠다(자동 commit)
-			 -->
-			<transactionManager type="JDBC" />
-			<!-- 
-			  * dataSource : DB를 사용하기 위한 jdbc의 설정
-			    >> ConnectionPool : 미리 DB접속한 connection객체를 가지고 있다가 필요할 때 대여
-			    					다 쓰고나서 반납하면 다시 재사용할 수 있음
-			    					장점 : DB에서 connection할 때 시간이 가장 오래걸림. pool을 사용하면 시간단축
-			    	- POOLED : poll 사용
-			    	- UNPOOLED : poll 사용안함
-			 -->
-			<dataSource type="POOLED">
-				<property name="driver" value="oracle.jdbc.OracleDriver" />
-				<property name="url" value="jdbc:oracle:thin:@localhost:1521:xe" />
-				<property name="username" value="mybatis" />
-				<property name="password" value="mybatis" />
-			</dataSource>
-		</environment>
-	</environments>
+		<environments default="development">
+			<environment id="development">
+				<!-- 
+				  * transactionManager
+				  	- JDBC : 트랜잭션을 내가 직접 관리하겠다(수동 commit)
+				  	- MANAGED : 트랜잭에 대한 어떠한 영향도 행사하지 않겠다(자동 commit)
+				 -->
+				<transactionManager type="JDBC" />
+				<!-- 
+				  * dataSource : DB를 사용하기 위한 jdbc의 설정
+				    >> ConnectionPool : 미리 DB접속한 connection객체를 가지고 있다가 필요할 때 대여
+				    					다 쓰고나서 반납하면 다시 재사용할 수 있음
+				    					장점 : DB에서 connection할 때 시간이 가장 오래걸림. pool을 사용하면 시간단축
+				    	- POOLED : poll 사용
+				    	- UNPOOLED : poll 사용안함
+				 -->
+				<dataSource type="POOLED">
+					<property name="driver" value="oracle.jdbc.OracleDriver" />
+					<property name="url" value="jdbc:oracle:thin:@localhost:1521:xe" />
+					<property name="username" value="mybatis" />
+					<property name="password" value="mybatis" />
+				</dataSource>
+			</environment>
+		</environments>
 	
 	<!-- mappers : 실행할 sql문들을 기록해둔 mapper파일들을 등록하는 영역 -->  
 	<mappers>

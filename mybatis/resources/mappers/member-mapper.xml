@@ -60,8 +60,19 @@
 		insert into member(user_id, user_pwd, user_name, email,birthday,gender,phone,address)
 		values(#{user_id}, #{user_pwd}, #{user_name}, #{email},#{birthday},#{gender},#{phone},#{address})
 	</insert>
+	<delete id="deleteMember" parameterType="String">
+	   delete from member
+	   where user_id = #{user_id}
+	</delete>
+	<update id="updateMember" parameterType="Member">
+		update Member
+		set user_pwd = #{user_pwd},
+			email = #{email},
+			phone = #{phone},
+			address = #{address}
+		where user_id = #{user_id}
+	</update>
 </mapper>
-
 
 
 

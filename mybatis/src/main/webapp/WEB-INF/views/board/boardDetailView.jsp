@@ -73,7 +73,7 @@
 					bnum:${b.board_no},
 					userId:"${loginUser.user_id}",
 					content:$("#replyContent").val()
-				},
+				},2
 				type: "post",
 				success:function(result) {
 					location.reload();

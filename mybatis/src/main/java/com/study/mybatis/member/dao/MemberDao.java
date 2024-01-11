@@ -47,6 +47,9 @@ public class MemberDao {
 	public int insertMember(SqlSession sqlSession, Member m) {
 		return sqlSession.insert("memberMapper.insertMember", m);
 	}
+	public int updateMember(SqlSession sqlSession, Member m) {
+	    return sqlSession.update("memberMapper.updateMember", m);
+	}
 }
 
 
