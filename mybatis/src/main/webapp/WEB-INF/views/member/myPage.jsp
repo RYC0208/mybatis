@@ -47,8 +47,29 @@
 				</td>
 			</tr>
 			<input name="user_id" value="${ loginUser.user_id }" hidden>
-			<script>
-			</script>
+			
 </form>
+<script>
+$(document).ready(function() {
+  $("#myPage").submit(function(event) {
+    event.preventDefault(); // 기본 제출 동작 방지
+
+    // 수정 데이터를 서버로 전송하는 AJAX 요청
+    $.ajax({
+      url: $(this).attr("action"),
+      method: $(this).attr("method"),
+      data: $(this).serialize(),
+      success: function(response) {
+        // 수정이 완료되면 메시지를 표시
+        alert("수정이 완료되었습니다.");
+      },
+      error: function() {
+        // 오류가 발생한 경우에 대한 처리
+        alert("수정에 실패하였습니다. 다시 시도해주세요.");
+      }
+    });
+  });
+});
+</script>
 </body>
 </html>
